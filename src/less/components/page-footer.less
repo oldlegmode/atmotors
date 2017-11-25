@@ -1,0 +1,35 @@
+.site-footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	padding: 15px 0;
+
+	background-color: rgb(47, 46, 46);
+	&__logo {
+		> img {
+			max-height: 55px;	
+		}
+	}
+	&__social-links-wrap {
+		display: flex;
+		justify-content: center;
+	}
+	&__social-link {
+		position: relative;
+		width: 40px;
+		height: 40px;
+		margin: 0 7px;
+		border-radius: 50%;
+
+		background-color: #fff;
+		
+		color: #000;
+		text-decoration: none;
+		text-align: center;
+		vertical-align: middle;
+		font-family: @font-icon;
+		font-size: 20px;
+		line-height: 40px;
+		.grow-shadow(0.2s);
+	}
+}

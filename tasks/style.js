@@ -25,11 +25,11 @@ module.exports = function(options) {
       .pipe($.if(isDevelopment, $.sourcemaps.init())) //Инициализируем sourcemap при NODE_ENV === 'development'
       .pipe($.less()) // Скомпилируем
       .pipe($.debug({title: 'less'})) // Показ происходящего
-      .pipe($.autoprefixer({browserslist: [
+      .pipe($.autoprefixer({browsers: [
                         "ie >= 10",
-                        "Firefox  >= 25",
+                        "Firefox >= 25",
                         "Chrome >= 58",
-                        "iOS >= 8",
+                        "iOS >= 8"
                       ]})) // Добавим вендорные префиксы
       .pipe($.debug({title: 'prefixer'})) // Показ происходящего
       .pipe($.if(!isDevelopment, cleanCSS())) // Сожмем при NODE_ENV === 'development'

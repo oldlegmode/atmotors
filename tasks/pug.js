@@ -1,8 +1,9 @@
 'use strict'
 
 const gulp = require('gulp');
-const svgSprite = require("gulp-svg-sprites");
 const $ = require('gulp-load-plugins')();
+const svgSprite = require("gulp-svg-sprites");
+
 
 var isDevelopment = process.env.NODE_ENV === 'development'; // setx NODE_ENV development && команда галпа
 
@@ -20,7 +21,7 @@ module.exports = function(options) {
         })
       )
       .pipe($.debug({title: 'src'})) // Показ происходящего
-      .pipe($.pug2()) // Компиляция HTML
+      .pipe($.pug()) // Компиляция HTML
       .pipe($.debug('pug2')) // Показ происходящего
       .pipe($.if(!isDevelopment, $.htmlmin())) // Минификация HTML
       .pipe($.if(!isDevelopment, $.debug('minify html'))) // Показ происходящего

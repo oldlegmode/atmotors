@@ -56,15 +56,20 @@ lazyRequireTask('pug', './tasks/pug', {
   src: 'src/pug/**/index.pug'
 });
 
+ // Сборка HTML в build или production взависимости от переменной NODE_ENV
+lazyRequireTask('html', './tasks/html', {
+  src: 'src/html/**/index.html'
+});
+
   // Сборка шрифтов (ttf woff woff2)
 
  // Конвертация шрифтов ttf 2 woff
 lazyRequireTask('ttf2woff', './tasks/ttf2woff', {
-  src: 'src/**/*.ttf'
+  src: 'src/fonts/**/*.ttf'
 });
  // Конвертация шрифтов ttf 2 woff2
 lazyRequireTask('ttf2woff2', './tasks/ttf2woff2', {
-  src: 'src/**/*.ttf'
+  src: 'src/fonts/**/*.ttf'
 });
  // Итоговая задача сборки шрифтов
 gulp.task('font', gulp.parallel(
@@ -75,7 +80,7 @@ gulp.task('font', gulp.parallel(
  // Сборка в build или production взависимости от переменной NODE_ENV
 gulp.task('build', gulp.series(
   'clean', 
-  gulp.parallel('pug', 'font', 'style', 'img')
+  gulp.parallel('html', 'font', 'style', 'img')
   )
 );
 

@@ -23,6 +23,6 @@ module.exports = function(options) {
         clone: true
       })) // Конвертирование и клонирование исходника
       .pipe($.debug({title: 'ttf2woff'})) // Показ происходящего
-      .pipe($.if(isDevelopment, gulp.dest('build/'), gulp.dest('production/'))) // Cохраним в build или public
+      .pipe($.if(isDevelopment, gulp.dest('build/fonts/'), gulp.dest('production/fonts/'))) // Cохраним в build или public
   }
 }

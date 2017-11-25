@@ -13,16 +13,17 @@ module.exports = function(options) {
       .pipe($.plumber({
         errorHandler: $.notify.onError(function (err) {
           return {
-              title: 'pug',
+              title: 'html',
               message: err.message
             };
           })
         })
       )
-      .pipe($.ttf2woff({
-        clone: true
-      })) // Конвертирование и клонирование исходника
-      .pipe($.debug({title: 'ttf2woff'})) // Показ происходящего
-      .pipe($.if(isDevelopment, gulp.dest('build/fonts/'), gulp.dest('production/fonts/'))) // Cохраним в build или public
+      .pipe($.debug({title: 'src'})) // Показ происходящего
+      .pipe($.rigger()) // Компиляция HTML
+      .pipe($.debug('rigger')) // Показ происходящего
+      .pipe($.if(!isDevelopment, $.htmlmin())) // Минификация HTML
+      .pipe($.if(!isDevelopment, $.debug('minify html'))) // Показ происходящего
+      .pipe($.if(isDevelopment, gulp.dest('build/'), gulp.dest('production/'))) // Cохраним в build или public
   }
 }

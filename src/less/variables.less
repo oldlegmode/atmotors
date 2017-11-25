@@ -1,0 +1,62 @@
+// typography
+// color
+@font-white: #fff;
+@font-red: #f21818;
+@font-braun: #a39964;
+// fonts
+@font-roboto: 'Roboto', sans-serif; 
+@font-georgia: georgia, serif;
+
+@font-icon: 'icon', sans-serif; 
+
+
+// mixin
+.grow-hover(@duration, @scale) {
+	transition-duration: @duration;
+	transition-property: transform;
+	&:focus,
+	&:active,
+	&:hover {
+		transform: scale(@scale);
+	}
+}
+.grow-hover-disabled() {
+	cursor: default;
+	transition-duration: 0;
+	transition-property: none;
+	&:focus,
+	&:active,
+	&:hover {
+		transform: none;
+	}
+}
+.grow-shadow(@Duration) {
+	transition-duration: @Duration;
+	transition-property: "box-shadow, transform";
+	&:hover,
+	&:focus,
+	&:active {
+		box-shadow: 0 0px 12px 0px rgba(255, 255, 255, 0.3);
+		transform: scale(1.1);
+	}
+}
+.text-shadow-hover(@duration) {
+	transition-duration: @duration;
+	transition-property: box-shadow;
+	&:hover,
+	&:focus,
+	&:active {
+	    text-shadow: 0 2px 5px rgba(255, 255, 255, 0.12);
+	}
+}
+.inset-shadow-hover(@duration) {
+	transition-duration: @duration;
+	transition-property: box-shadow, transform;
+	&:hover,
+	&:focus,
+	&:active {
+	    box-shadow: 1px 8px 12px 5px rgba(0, 0, 0, 0.7);
+	    transform: scale(1.05);
+
+	}
+}

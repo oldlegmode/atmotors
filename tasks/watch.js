@@ -10,7 +10,7 @@ module.exports = function(options) {
       remember.forget('image', path.resolve(filepath));
       delete cached.caches.image[path.resolve(filepath)];
     })
-    gulp.watch('src/pug/**/*.*', gulp.series('pug'))
+    gulp.watch('src/html/**/*.*', gulp.series('html'))
     gulp.watch('src/fonts/**/*.*', gulp.series('font'))
   }
 }
