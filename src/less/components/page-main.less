@@ -9,6 +9,9 @@
 	background-attachment: fixed;
 	background-image: url("../img/bg__header.webp");
 	background-image: url("../img/bg__header.jpg");	
+	@media (max-width: 750px) {
+		padding-top: 170px;
+	}
 	&__logo-link {
 		display: block;
 		max-width: 352px;
@@ -36,6 +39,9 @@
 		display: flex;
 		justify-content: space-around;
 		margin-bottom: 200px;
+		@media (max-width: 750px) {
+			flex-wrap: wrap;
+		}
 	}
 	&__address-text {
 		color: @font-red;
@@ -78,7 +84,7 @@
 }
 .offer {
 	padding-top: 95px;
-	padding-bottom: 300px;
+	padding-bottom: 220px;
 
 	background-image: url("../img/bg__noise.jpg");
 	&__header {
@@ -106,14 +112,22 @@
 	&__items-container {
 		display: flex;
 		justify-content: center;
+		@media (max-width: 750px) {
+			flex-wrap: wrap;
+		}
 	}
 	&__item {
 		flex-basis: 20%;
-		margin: 0 2%;
+		margin: 0 2% 80px;
 
 		color: #fff;
 		text-align: center;
-		.grow-hover(0.2s, 1.1);
+
+		.grow-hover(0.4s, 1.1);
+		@media (max-width: 750px) {
+			flex-basis: 100%;
+			.grow-hover(0.4s, 1.05);
+		}
 	}
 	&__item-icon {
 		width: 125px; 
@@ -159,7 +173,11 @@
 	}
 	&__gallery-wrap {
 		margin: 0 3%;
-		display: flex;		
+		display: flex;
+		@media (max-width: 750px) {
+			margin: 0;
+			flex-basis: 100%;
+		}		
 	}
 	&__gallery-content {
 		flex-basis: 100%;
@@ -169,31 +187,44 @@
 		margin-right: auto;
 		justify-content: center;
 		box-shadow: 0 3px 15px rgba(0, 0, 0, .25);
-
 	}
 	&__gallery-link {
 		flex-basis: calc(100% / 3);
 		display: inline-block;
 		width: calc(100% / 3);
-
-		display: block;
 		padding: 0;
 		margin: 0;
-		
+
+		color: transparent;
+		@media (min-width: 441px) and (max-width: 750px){
+			flex-basis: 50%;
+		}
+		@media (max-width: 440px) {
+			flex-basis: 100%;
+		}
 	}
 	&__gallery-item {
 		display: block;
+		max-width: 100%;
 		padding: 0;
 		margin: 0;
 		.inset-shadow-hover(0.2s);
+		@media (max-width: 750px) {
+			&:hover,
+			&:focus,
+			&:active {
+			    box-shadow: 0px 0px 12px 5px rgba(0, 0, 0, 0.7);
+			    transform: scale(1.05);
 
+			}
+		}
 	}
 }
 .about-us {
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
 	padding-top: 90px;
-	padding-bottom: 90px;
 
 	background-image: url("../img/bg__service.jpg");
 
@@ -201,9 +232,14 @@
 	&__container {
 		flex-basis: 50%;
 		padding: 30px 100px 20px;
+		margin-bottom: 90px;
 		border-radius: 3px;
 
 		background-color: #fff;
+		@media (max-width: 750px) {
+			padding: 30px 10px 20px;
+			flex-basis: 100%;
+		}
 	}
 	&__header {
 		position: relative;
@@ -232,6 +268,7 @@
 	}
 }
 .paralax-background {
+	width: 110%;
 	height: 510px;
 	background-color: #d8dcdf;
 	background: url('../img/mam-with-auto.jpg') no-repeat 50% 50%;	
@@ -268,6 +305,18 @@
 		border-radius: 3px;
 
 		background-color: #fff;
+		@media (min-width: 751px) and (max-width: 1000px) {
+			padding: 30px 10px 20px;
+			flex-basis: 90%;
+		}
+		@media (min-width: 501px) and (max-width: 750px) {
+			padding: 30px 5px 20px;
+			flex-basis: 95%;
+		}
+		@media (max-width: 500px) {
+			padding: 30px 5px 20px;
+			flex-basis: 100%;
+		}
 	}
 	&__header {
 		position: relative;
@@ -294,6 +343,10 @@
 	}
 	&__addresses {
 		flex-basis: 50%;
+		@media (max-width: 600px) {
+			padding-left: 20px;
+			flex-basis: 100%;
+		}
 	}
 	&__adress {
 		margin-top: 0;
@@ -301,6 +354,9 @@
 	}
 	&__form {
 		flex-basis: 50%;
+		@media (max-width: 600px) {
+			flex-basis: 100%;
+		}
 	}
 	&__input {
 		width: 100%;
@@ -327,5 +383,81 @@
 			color: #fff;
 			text-transform: uppercase;
 		}
+	}
+}
+
+.gallery {
+	position: fixed;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	z-index: 1020;
+
+	display: none;
+
+	background-color: rgba(0, 0, 0, .85);
+
+	&__close {
+		position: absolute;
+		top: 10%;
+		right: 5%;
+		
+	    padding: 0 5px;
+
+		font-size: 25px;
+		font-family: @font-icon;
+		color: #fff;	
+
+		cursor: pointer;
+	}
+
+	&__toggle {
+		position: absolute;
+
+	    padding: 5px;
+
+		font-family: @font-icon;
+		color: #fff;
+		font-size: 37px;
+
+		cursor: pointer;
+		&--prev {
+			top: 55%;
+			left: 10%;
+		}
+		&--next {
+			top: 55%;
+			right: 10%;
+		}
+	}
+	&__img {
+	    position: absolute;
+	    top: 45%;
+	    left: 50%;
+
+		max-height: 70vh;
+		max-width: 70vw;
+
+	    transform: translate(-50%, -50%);
+
+		box-shadow: 0px 0px 12px 5px rgba(0, 0, 0, 0.7);
+	    &:hover,
+		&:focus,
+		&:active {
+		    transform: translate(-50%, -50%);
+
+		}
+	}
+	&__sign {
+		position: absolute;
+		bottom: 5%;
+		left: 0;
+		right: 0;
+
+		text-align: center;
+		font-weight: bold;
+		color: #fff;
+		font-size: 20px;
 	}
 }
