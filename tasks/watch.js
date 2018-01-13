@@ -12,5 +12,6 @@ module.exports = function(options) {
     })
     gulp.watch('src/html/**/*.*', gulp.series('html'))
     gulp.watch('src/fonts/**/*.*', gulp.series('font'))
+    gulp.watch('src/js/**/*.*', gulp.series('js'))
   }
 }

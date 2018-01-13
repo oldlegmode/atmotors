@@ -12,6 +12,7 @@
   for (var i = 0; i < linkNav.length; i++) {
     linkNav[i].addEventListener('click', function(e) {
       e.preventDefault();
+      
       scrollToBlock(this);
     }, false);
     linkNav[i].addEventListener('click', function (event) {
@@ -40,7 +41,7 @@
       if (delta != pageYOffset + indent) {
         requestAnimationFrame(step);
       } else {
-        location.hash = hash // URL с хэшем
+        // location.hash = hash // URL с хэшем
       }
     }
   }
