@@ -21,6 +21,8 @@ lazyRequireTask('lint', './tasks/lint', {
   src: 'src/js/**/*.js',
   dist: process.cwd() + '/tmp/lintCache.json'
 });
+ // Прогоняем js files
+lazyRequireTask('js', './tasks/js');
 
  // Сборка стилей build or production
 lazyRequireTask('style', './tasks/style', {
@@ -80,11 +82,18 @@ gulp.task('font', gulp.parallel(
  // Сборка в build или production взависимости от переменной NODE_ENV
 gulp.task('build', gulp.series(
   'clean', 
-  gulp.parallel('html', 'font', 'style', 'img')
+  gulp.parallel('html', 'font', 'style', 'img', 'js')
   )
 );
 
-gulp.task('dev', gulp.series('build', gulp.parallel('watch', 'sync')));
+gulp.task('build:no:clean', gulp.series( 
+  gulp.parallel('html', 'style', 'img', 'js')
+  )
+);
+
+gulp.task('develop', gulp.series('build', gulp.parallel('watch', 'sync')));
+
+gulp.task('dev', gulp.series('build:no:clean', gulp.parallel('watch', 'sync')));
 
 
 

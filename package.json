@@ -29,12 +29,16 @@
     "gulp-pug2": "0.0.2",
     "gulp-remember": "^0.3.1",
     "gulp-rename": "^1.2.2",
+    "gulp-rigger": "^0.5.8",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-svg-sprites": "^4.1.2",
     "gulp-ttf2woff": "^1.1.0",
     "gulp-ttf2woff2": "^2.0.2",
+    "gulp-uglify": "^3.0.0",
     "gulp-watch": "^4.3.11",
     "node-gyp": "^3.6.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "gulp-htmlmin": "^3.0.0"
+  }
 }
